@@ -1,9 +1,9 @@
 import Axios from "axios";
 
 //export const API_URL = "http://localhost:4741/api"; 
-//export const API_URL = "https://server-ep-01.onrender.com/api";
+export const API_URL = "https://server-ep-01.onrender.com/api";
 //export const API_URL = "https://smartprinter3d.ru/api"; 
-export const API_URL = "https://nutty-cod-coat.cyclic.app/api";
+//export const API_URL = "https://nutty-cod-coat.cyclic.app/api";
 
 const instance = Axios.create({
   withCredentials: true,
