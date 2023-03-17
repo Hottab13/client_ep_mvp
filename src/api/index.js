@@ -6,9 +6,6 @@ export const API_URL = "https://server-ep-01.onrender.com/api";
 const instance = Axios.create({
   withCredentials: true,
   baseURL: API_URL,
-  headers: {
-    "Content-type": "application/json",
-  },
 });
 
 instance.interceptors.request.use((config) => {
