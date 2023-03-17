@@ -69,21 +69,19 @@ export const checkUser = createAsyncThunk(
   "authUserSlice/checkUser",
   async function (_, { rejectWithValue, dispatch }) {
     try {
-      debugger
       const response = await Axios.get(`${API_URL}/refresh`, {
         withCredentials: true,
+        headers: {
+          "Content-type": "application/json",
+      },
       });
-      debugger
       if (response.status === 200) {
-        debugger
         localStorage.setItem("token", response.data.accessToken);
         dispatch(setUserData(response.data));
       } else if (response.status === 401) {
-        debugger
         localStorage.removeItem("token");
         dispatch(setUserData());
       } else {
-        debugger
         throw new Error("Не удалось выполнить аунтификацию!");
       }
     } catch (error) {
