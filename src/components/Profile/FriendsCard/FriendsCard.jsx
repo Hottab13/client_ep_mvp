@@ -20,7 +20,7 @@ const FriendsCard = ({}) => {
         </span>
         <span>Подписки</span>
       </div>
-      <div className="grid grid-cols-5 overflow-y-auto">
+      <div className="grid grid-cols-4">
        
         <div className="text-center my-2 rounded-lg hover:shadow-xl">
           <img

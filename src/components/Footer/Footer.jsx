@@ -92,9 +92,9 @@ const Footer =()=>{
     </div>
     </div>*/}
     <p className=" text-xs text-gray-800   ">
-      <a href="https://t.me/smartech_ceo">
+      <Link to="https://t.me/smartech_ceo">
     Developer Alekseev Aleksey © 2023  
-    </a>
+    </Link>
     </p>
   </div>
 </footer>

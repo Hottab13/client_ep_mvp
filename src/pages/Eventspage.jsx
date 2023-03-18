@@ -11,7 +11,7 @@ import { EventEl } from "../components/Events/EventEl";
 
 const EventContainer = ({ children }) => (
   <section className="text-gray-600 body-font">
-    <div className="container px-5 py-5 mx-auto">
+    <div className="container p-5 mx-auto">
       <div className="flex flex-wrap -m-4">{children}</div>
     </div>
   </section>

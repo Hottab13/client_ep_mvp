@@ -19,6 +19,7 @@ const Profilepage = () => {
           imgUser={userData.imgUser}
           isOwner={isOwner}
           userEvents={userData.userEvents}
+          userImgEvents={userData.userImgEvents}
         />
       )}
     </>

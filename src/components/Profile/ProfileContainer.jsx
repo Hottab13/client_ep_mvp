@@ -1,9 +1,19 @@
+import { useCurrentTime } from "../../hook/useCurrentTime";
+
 import { AboutSection } from "./Sections/AboutSection/AboutSection";
 import { ProfileCard } from "./ProfileCard/ProfileCard";
 import { FriendsCard } from "./FriendsCard/FriendsCard";
 import { UserEventsSection } from "./Sections/UserEventsSection/UserEventsSection";
 
-const ProfileContainer = ({ userData, imgUser, isOwner, userEvents, userImgEvents }) => {
+
+const ProfileContainer = ({
+  userData,
+  imgUser,
+  isOwner,
+  userEvents,
+  userImgEvents,
+}) => {
+ const currentTime = useCurrentTime();
   return (
     <div className="container mx-auto my-5 p-2 bg-gray-100">
       <div className="md:flex  md:-mx-2 ">
@@ -17,7 +27,12 @@ const ProfileContainer = ({ userData, imgUser, isOwner, userEvents, userImgEvent
         </div>
         <div className="w-full md:w-8/12 md:mx-2 ">
           <AboutSection userData={userData} isOwner={isOwner} />
-          <UserEventsSection userEvents={userEvents} u_id={userData._id} userImgEvents={userImgEvents} />
+          <UserEventsSection
+            userEvents={userEvents}
+            u_id={userData._id}
+            userImgEvents={userImgEvents}
+            currentTime={currentTime}
+          />
         </div>
       </div>
     </div>

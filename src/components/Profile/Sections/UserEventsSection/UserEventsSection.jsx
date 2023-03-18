@@ -4,8 +4,9 @@ import EventProfile from "../../../../assets/images/event_profile_200_200.jpg";
 import { _arrayBufferToBase64 } from "../../../../utils/arrayBufferToBase64";
 import { BlockHeader } from "../BlockHeader";
 import { EventCountdownTimer } from "../../../Events/EventCountdownTimer";
+import { useCurrentTime } from "../../../../hook/useCurrentTime";
 
-const UserEventsSection = ({ userEvents, userImgEvents }) => (
+const UserEventsSection = ({ userEvents, userImgEvents, currentTime }) => (
   <div className="bg-white p-3 mb-4 rounded-lg shadow-lg hover:shadow-xl">
     <BlockHeader
       d={
@@ -15,12 +16,20 @@ const UserEventsSection = ({ userEvents, userImgEvents }) => (
       Мои события
     </BlockHeader>
 
-    <section className="text-gray-900 body-font">
-      <div className="container px-5 py-5 mx-auto grid justify-items-stretch">
+    <section className="text-gray-900 body-font pt-2">
+      <div className="container p-2 pt-2 mx-auto grid justify-items-stretch">
         <div className="flex flex-wrap -m-4">
           {userEvents.map(({ _id, name, type, users, startDate, endDate }) => (
-            <div key={_id} className="p-2 w-1/3 md:w-1/4 ">
-              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-2xl ">
+            <div key={_id} className="p-1 w-1/3 md:w-1/4 ">
+              <div
+                className={
+                  Math.floor(new Date(endDate).valueOf()) <= currentTime
+                    ? "border-red-300 bg-red-100 h-full border-2 border-opacity-60 rounded-lg overflow-hidden hover:shadow-2xl"
+                    : Math.floor(new Date(startDate).valueOf()) <= currentTime
+                    ? "border-green-300 bg-green-100 h-full border-2 border-opacity-60 rounded-lg overflow-hidden hover:shadow-2xl"
+                    : "border-gray-200 bg-white h-full border-2 border-opacity-60 rounded-lg overflow-hidden hover:shadow-2xl"
+                }
+              >
                 <Link to={`/event/${_id}`}>
                   {userImgEvents.find((e) => _id === e.event) ? (
                     userImgEvents.map(
@@ -45,7 +54,7 @@ const UserEventsSection = ({ userEvents, userImgEvents }) => (
                   )}
                 </Link>
 
-                <div className="p-4">
+                <div className="p-2">
                   <h2 className="tracking-widest text-xs title-font font-bold text-green-400 mb-1 uppercase ">
                     {type}
                   </h2>
@@ -53,7 +62,15 @@ const UserEventsSection = ({ userEvents, userImgEvents }) => (
                     {name}
                   </h1>
                   <div className="flex items-center flex-wrap ">
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    <span className="text-gray-400">
+                      {Math.floor(new Date(endDate).valueOf()) <= currentTime
+                        ? "Завершилось"
+                        : Math.floor(new Date(startDate).valueOf()) <=
+                          currentTime
+                        ? "Процесс..."
+                        : "До начала"}
+                    </span>
+                    <span className="text-gray-400 mr-1 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-1 py-1 border-r-2 border-gray-200">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -86,12 +103,11 @@ const UserEventsSection = ({ userEvents, userImgEvents }) => (
                       89
                     </span>
                   </div>
-                  <div className="m-5">
+
                   <EventCountdownTimer
                     startDate={startDate}
                     endDate={endDate}
                   />
-                  </div>
                 </div>
               </div>
             </div>
