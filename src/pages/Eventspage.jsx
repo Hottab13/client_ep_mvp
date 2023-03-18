@@ -16,7 +16,7 @@ const EventContainer = ({ children }) => (
     </div>
   </section>
 );
-
+ 
 const Eventspage = () => {
   const dispatch = useDispatch();
   const events = useEvents();
@@ -27,6 +27,7 @@ const Eventspage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const eventQuery = searchParams.get("event") || " ";
   const eventSelect = searchParams.get("type") || " ";
+  
   const hendlerSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

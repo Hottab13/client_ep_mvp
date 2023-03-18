@@ -80,6 +80,7 @@ const userProfileData = createSlice({
     userDataId: "",
     imgUser: "",
     userEvents: "",
+    userImgEvents:"",
   },
   reducers: {
     setUserData(state, action) {
@@ -100,7 +101,8 @@ const userProfileData = createSlice({
         },
       };
       state.imgUser = action.payload?.imgUser;
-      state.userEvents = action.payload?.userEvents;
+      state.userEvents = action.payload?.userEvents; 
+      state.userImgEvents = action.payload?.userImgEvents;
     },
   },
   extraReducers: {

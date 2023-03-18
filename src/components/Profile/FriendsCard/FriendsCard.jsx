@@ -1,6 +1,6 @@
 const FriendsCard = ({}) => {
   return (
-    <div className="bg-white p-3 rounded-lg hover:shadow">
+    <div className="bg-white p-3 mb-4 rounded-lg shadow-lg hover:shadow-xl">
       <div className="flex items-center space-x-3 font-semibold text-gray-900 text-xl leading-8">
         <span className="text-indigo-500">
           <svg
@@ -20,47 +20,70 @@ const FriendsCard = ({}) => {
         </span>
         <span>Подписки</span>
       </div>
-      <div className="grid grid-cols-3">
-        <div className="text-center my-2">
+      <div className="grid grid-cols-5 overflow-y-auto">
+       
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
           <img
-            className="h-16 w-16 rounded-full mx-auto"
+            className="h-16 w-16 rounded-full mx-auto  "
             src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
             alt=""
           />
           <a href="#" className="text-main-color">
-            Kojstantin
+            Подписчик
           </a>
         </div>
-        <div className="text-center my-2">
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
           <img
-            className="h-16 w-16 rounded-full mx-auto"
-            src="https://avatars2.githubusercontent.com/u/24622175?s=60&amp;v=4"
+            className="h-16 w-16 rounded-full mx-auto  "
+            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
             alt=""
           />
           <a href="#" className="text-main-color">
-            James
+            Подписчик
           </a>
         </div>
-        {/*<div className="text-center my-2">
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
           <img
-            className="h-16 w-16 rounded-full mx-auto"
-            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
+            className="h-16 w-16 rounded-full mx-auto  "
+            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
             alt=""
           />
           <a href="#" className="text-main-color">
-            Natie
+            Подписчик
           </a>
-  </div>*/}
-        <div className="text-center my-2">
+        </div>
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
           <img
-            className="h-16 w-16 rounded-full mx-auto"
-            src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/f04b52da-12f2-449f-b90c-5e4d5e2b1469_361x361.png"
+            className="h-16 w-16 rounded-full mx-auto  "
+            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
             alt=""
           />
           <a href="#" className="text-main-color">
-            Casey
+            Подписчик
           </a>
         </div>
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
+          <img
+            className="h-16 w-16 rounded-full mx-auto  "
+            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
+            alt=""
+          />
+          <a href="#" className="text-main-color">
+            Подписчик
+          </a>
+        </div>
+        <div className="text-center my-2 rounded-lg hover:shadow-xl">
+          <img
+            className="h-16 w-16 rounded-full mx-auto  "
+            src="https://cdn.australianageingagenda.com.au/wp-content/uploads/2015/06/28085920/Phil-Beckett-2-e1435107243361.jpg"
+            alt=""
+          />
+          <a href="#" className="text-main-color">
+            Подписчик
+          </a>
+        </div>
+        
+
       </div>
     </div>
   );

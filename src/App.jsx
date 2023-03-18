@@ -66,10 +66,8 @@ const router = createBrowserRouter(
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    debugger
     const token = localStorage.getItem("token");
     if (token) {
-      debugger
       dispatch(checkUser());
     }
   }, [dispatch]);

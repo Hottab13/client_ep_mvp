@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -13,7 +12,7 @@ const Profilepage = () => {
   const isOwner = false;
   if (status === "loading") return <Loader />;
   return (
-    <Fragment>
+    <>
       {userData && (
         <ProfileContainer
           userData={userData.user}
@@ -22,7 +21,7 @@ const Profilepage = () => {
           userEvents={userData.userEvents}
         />
       )}
-    </Fragment>
+    </>
   );
 };
 

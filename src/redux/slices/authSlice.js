@@ -71,9 +71,7 @@ export const checkUser = createAsyncThunk(
     try {
       const response = await Axios.get(`${API_URL}/refresh`, {
         withCredentials: true,
-        headers: {
-          "Content-type": "application/json",
-      },
+        
       });
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken);

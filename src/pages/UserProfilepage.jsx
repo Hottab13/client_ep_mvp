@@ -5,7 +5,7 @@ import { Loader } from "../components/Loader";
 import { ProfileContainer } from "../components/Profile/ProfileContainer";
 
 const UserProfilepage = () => {
-  const { userData, imgUser, userEvents, status } = useSelector(
+  const { userData, imgUser,userImgEvents, userEvents, status } = useSelector(
     (state) => state.userProfileData || {}
   );
   if (status === "loading") return <Loader />;
@@ -15,6 +15,7 @@ const UserProfilepage = () => {
       userData={userData}
       imgUser={imgUser}
       userEvents={userEvents}
+      userImgEvents={userImgEvents}
       isOwner={isOwner}
     />
   );

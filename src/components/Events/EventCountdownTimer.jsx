@@ -1,5 +1,5 @@
 import moment from "moment";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ElementTimerBlog = ({ children, elName, color }) => (
   <div className="mx-1 text-gray-400">
@@ -12,7 +12,7 @@ const EventCountdownTimer = ({ startDate, endDate }) => {
   const parsTimeMilliseconds = (date) => Math.floor(new Date(date).valueOf());
   const inEventTime = parsTimeMilliseconds(startDate);
   const endEventTime = parsTimeMilliseconds(endDate);
-  const currentTime = Math.floor(new Date().valueOf() + 10800000); 
+  const currentTime = Math.floor(new Date().valueOf() + 10800000);
 
   const calculateTimeLeft = () => {
     let leftTime = null;
@@ -24,7 +24,7 @@ const EventCountdownTimer = ({ startDate, endDate }) => {
     const duration = moment.duration(leftTime, "milliseconds");
     const days = Math.floor(moment.duration(leftTime).asDays());
     return (
-      <Fragment>
+      <>
         <ElementTimerBlog elName={"Дней"} color={inEventTime >= currentTime}>
           {days}
         </ElementTimerBlog>
@@ -37,7 +37,7 @@ const EventCountdownTimer = ({ startDate, endDate }) => {
         <ElementTimerBlog elName={"Секунд"} color={inEventTime >= currentTime}>
           {duration.seconds()}
         </ElementTimerBlog>
-      </Fragment>
+      </>
     );
   };
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -49,10 +49,8 @@ const EventCountdownTimer = ({ startDate, endDate }) => {
 
   return (
     <div className="w-full flex flex-col">
-      <div className="min-w-screen   flex items-center justify-center ">
-        <div className=" text-center flex w-full items-center justify-center">
+      <div className="min-w-screen text-center flex items-center justify-center ">
           {timeLeft}
-        </div>
       </div>
     </div>
   );

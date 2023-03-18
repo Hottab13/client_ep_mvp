@@ -45,7 +45,7 @@ const ProfileCard = ({ userData, imgUser, isOwner }) => {
     }
   };
   return (
-    <div className="bg-white p-3 border-t-4  border-indigo-500 rounded-lg mb-4 shadow-xl">
+    <div className="bg-white p-3  rounded-lg mb-4 shadow-lg hover:shadow-xl border-t-4  border-indigo-500">
       <div className="image overflow-hidden">
         {imgUser ? (
           <img
@@ -77,12 +77,12 @@ const ProfileCard = ({ userData, imgUser, isOwner }) => {
           <ErrorsSpan errors={errors?.userPhoto} className="errors-span" />
         </>
       )}
-      <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
+      <h1 className=" text-gray-900 font-bold text-xl leading-8 my-1 overflow-hidden">
         {(userData?.data?.userName || "") +
           " " +
           (userData?.data?.userSurname || " ")}
       </h1>
-      <h3 className="text-gray-600 font-lg text-semibold leading-6">
+      <h3 className="text-gray-600 font-lg text-semibold leading-6 ">
         {userData?.aboutMe}
       </h3>
       <ul className="bg-gray-100 text-gray-600 hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
@@ -90,12 +90,12 @@ const ProfileCard = ({ userData, imgUser, isOwner }) => {
           <span>Статус</span>
           <span className="ml-auto">
             <span className="bg-indigo-500 py-1 px-2 rounded text-white text-sm">
-              Active
+              Online
             </span>
           </span>
         </li>
-        <li className="flex items-center py-3">
-          <span>Зарегистрирован</span>
+        <li className="flex items-center py-3 overflow-hidden">
+          <span>Создан</span>
           <span className="ml-auto">
             {moment.utc(userData.createdAt).format("YYYY/MM/DD")}
           </span>
