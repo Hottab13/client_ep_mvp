@@ -2,7 +2,7 @@ const FormIcon = ({ error }) => {
   return (
     <>
       {error ? (
-        <div className="absolute right-3 mt-6">
+        <div className="absolute  right-3 mt-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -19,7 +19,7 @@ const FormIcon = ({ error }) => {
           </svg>
         </div>
       ) : (
-        <div className="absolute right-3 mt-6">
+        <div className="absolute  right-3 mt-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

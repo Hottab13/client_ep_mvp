@@ -20,8 +20,9 @@ const EditOwnerUser = ({ eventProfile }) => {
         />
       )}
       {isOpenDeleteEv && (
-        <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
-          <div className="bg-white px-16 py-14 rounded-md text-center">
+        <div className=" flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
+          <div className=" fixed inset-0 bg-gray-800 opacity-25"></div>
+          <div className="bg-white px-16 py-14 rounded-md text-center z-50">
             <h1 className="text-xl mb-4 font-bold text-slate-500">
               Действительно удалить событие?
             </h1>

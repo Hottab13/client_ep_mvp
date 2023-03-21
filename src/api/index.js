@@ -1,7 +1,7 @@
 import Axios from "axios";
 
-export const API_URL = "http://localhost:4741/api";
-//export const API_URL = "https://server-ep-01.onrender.com/api";
+//export const API_URL = "http://localhost:4741/api";
+export const API_URL = "https://server-ep-01.onrender.com/api";
 
 const instance = Axios.create({
   withCredentials: true,

@@ -1,0 +1,205 @@
+[33mcommit cfc1301ec3a202ee820b169d8de5462c4e8b2c4a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Sun Mar 19 02:50:10 2023 +0300
+
+    client_ep_01_8
+
+2	2	src/api/index.js
+2	2	src/components/Footer/Footer.jsx
+189	72	src/components/Haeder/Header.jsx
+1	1	src/components/Profile/FriendsCard/FriendsCard.jsx
+17	2	src/components/Profile/ProfileContainer.jsx
+2	2	src/components/Profile/Sections/AboutSection/AboutSection.jsx
+25	9	src/components/Profile/Sections/UserEventsSection/UserEventsSection.jsx
+2	0	src/hook/useCurrentTime.jsx
+1	1	src/index.css
+1	1	src/pages/Eventspage.jsx
+1	0	src/pages/Profilepage.jsx
+
+[33mcommit 3cc36b446eb9b944fc3e28c604d318dea72106fa[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Sat Mar 18 19:41:02 2023 +0300
+
+    client_ep_01_7
+
+2	2	src/api/index.js
+
+[33mcommit 4e35a66d4b89f5633893530efb9ceb850849d475[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Sat Mar 18 19:30:31 2023 +0300
+
+    client_ep_01_6
+
+0	2	src/App.jsx
+2	2	src/api/index.js
+5	7	src/components/Events/EventCountdownTimer.jsx
+1	1	src/components/Layout.jsx
+0	97	src/components/Profile/AboutSection/AboutSection.jsx
+0	134	src/components/Profile/AboutSectionForm.jsx
+41	18	src/components/Profile/FriendsCard/FriendsCard.jsx
+6	6	src/components/Profile/ProfileCard/ProfileCard.jsx
+8	8	src/components/Profile/ProfileContainer.jsx
+75	0	src/components/Profile/Sections/AboutSection/AboutSection.jsx
+126	0	src/components/Profile/Sections/AboutSectionForm.jsx
+18	0	src/components/Profile/Sections/BlockHeader.jsx
+104	0	src/components/Profile/Sections/UserEventsSection/UserEventsSection.jsx
+0	69	src/components/Profile/UserEventsSection/UserEventsSection.jsx
+2	1	src/pages/Eventspage.jsx
+2	3	src/pages/Profilepage.jsx
+2	1	src/pages/UserProfilepage.jsx
+1	3	src/redux/slices/authSlice.js
+3	1	src/redux/slices/userSlice.js
+
+[33mcommit 9f18ccbd7c472ddeb7335229656a84e05f25caee[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Fri Mar 17 14:48:17 2023 +0300
+
+    client_ep_01_5
+
+0	3	src/api/index.js
+
+[33mcommit adc250998e3c8b9fc7c0b3ace31d6a36b5a8572b[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Fri Mar 17 14:20:30 2023 +0300
+
+    client_ep_01_4
+
+4	3	src/api/index.js
+3	5	src/redux/slices/authSlice.js
+
+[33mcommit 0bf1e7d015631149068f38db1ffc3a036533a055[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Fri Mar 17 01:37:54 2023 +0300
+
+    client_ep_01_3
+
+3	1	package.json
+2	2	src/api/index.js
+
+[33mcommit 3976fd4364c4900b270a2b3182a141c67cb66613[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Fri Mar 17 01:21:05 2023 +0300
+
+    client_ep_01_2
+
+1	3	package.json
+
+[33mcommit 5afa121d2a5463dcce1325a5ef09c8ff5047aafd[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Fri Mar 17 01:04:46 2023 +0300
+
+    client_ep_01
+
+28	0	.eslintrc
+15	0	.vscode/launch.json
+1642	6	package-lock.json
+15	8	package.json
+6	0	postcss.config.js
+2	11	public/index.html
+0	38	src/App.css
+0	25	src/App.js
+79	0	src/App.jsx
+0	8	src/App.test.js
+41	0	src/api/index.js
+34	0	src/assets/data/index.js
+-	-	src/assets/images/1.jpg
+-	-	src/assets/images/2.gif
+-	-	src/assets/images/2.jpg
+-	-	src/assets/images/3.jpg
+-	-	src/assets/images/aditya-chinchure-ZhQCZjr9fHo-unsplash.jpg
+-	-	src/assets/images/ava.png
+-	-	src/assets/images/banner-1.jpg
+-	-	src/assets/images/banner-2.jpg
+-	-	src/assets/images/banner-3.jpg
+-	-	src/assets/images/banner-4.jpg
+-	-	src/assets/images/event_profile.jpg
+-	-	src/assets/images/event_profile_200_200.jpg
+-	-	src/assets/images/frontPhoto.jpg
+-	-	src/assets/images/jason-leung-Xaanw0s0pMk-unsplash.jpg
+-	-	src/assets/images/jorg-angeli-CAMwIxYk5Xg-unsplash.jpg
+-	-	src/assets/images/profile-background.jpg
+-	-	src/assets/images/unnamed (1).jpg
+17	0	src/components/AuthComponent/AuthContainer.jsx
+35	0	src/components/AuthComponent/CoverAuth.jsx
+119	0	src/components/AuthComponent/Form/LoginForm.jsx
+155	0	src/components/AuthComponent/Form/RegistrationForm.jsx
+42	0	src/components/AuthComponent/FormIcon.jsx
+4	0	src/components/ChildComponent.jsx
+268	0	src/components/CreateEventComponent/CreateEventForm.jsx
+14	0	src/components/Error.jsx
+2	0	src/components/ErrorsSpan.jsx
+98	0	src/components/EventProfileComponent/EventCountdownTimerBlog.jsx
+55	0	src/components/EventProfileComponent/EventInfoBlog.jsx
+35	0	src/components/EventProfileComponent/EventInfoOwnerUserBlog.jsx
+52	0	src/components/EventProfileComponent/EventPartyBlog.jsx
+77	0	src/components/EventProfileComponent/EventProfileCard/ActionBlog/ActionBlog.jsx
+113	0	src/components/EventProfileComponent/EventProfileCard/ActionBlog/EditOwnerUser.jsx
+284	0	src/components/EventProfileComponent/EventProfileCard/ActionBlog/EditOwnerUserForm.jsx
+123	0	src/components/EventProfileComponent/EventProfileCard/EventProfileCard.jsx
+60	0	src/components/Events/EventCountdownTimer.jsx
+66	0	src/components/Events/EventEl.jsx
+49	0	src/components/Events/EventInfoBlock.jsx
+29	0	src/components/Events/ImgEventBlock.jsx
+84	0	src/components/Events/SearchEvents/SearchEvents.jsx
+57	0	src/components/Events/UserInfoBlock.jsx
+103	0	src/components/Footer/Footer.jsx
+91	0	src/components/Haeder/Header.jsx
+17	0	src/components/Layout.jsx
+6	0	src/components/Loader.jsx
+97	0	src/components/Profile/AboutSection/AboutSection.jsx
+134	0	src/components/Profile/AboutSectionForm.jsx
+68	0	src/components/Profile/FriendsCard/FriendsCard.jsx
+107	0	src/components/Profile/ProfileCard/ProfileCard.jsx
+26	0	src/components/Profile/ProfileContainer.jsx
+69	0	src/components/Profile/UserEventsSection/UserEventsSection.jsx
+12	0	src/hoc/RequireAuth.jsx
+18	0	src/hook/useEventData.jsx
+14	0	src/hook/useEvents.jsx
+14	0	src/hook/useUserData.jsx
+145	12	src/index.css
+11	13	src/index.js
+0	1	src/logo.svg
+87	0	src/pages/CreateEventpage.jsx
+26	0	src/pages/Errorpage.jsx
+44	0	src/pages/EventProfilepage.jsx
+54	0	src/pages/Eventspage.jsx
+35	0	src/pages/Loginpage.jsx
+29	0	src/pages/Profilepage.jsx
+34	0	src/pages/Registrationpage.jsx
+22	0	src/pages/UserProfilepage.jsx
+165	0	src/redux/slices/authSlice.js
+289	0	src/redux/slices/eventsSlice.js
+13	0	src/redux/slices/index.js
+144	0	src/redux/slices/userSlice.js
+7	0	src/redux/store.js
+1	1	src/reportWebVitals.js
+1	1	src/setupTests.js
+88	0	src/utils/Alert.jsx
+9	0	src/utils/arrayBufferToBase64.js
+4	0	src/utils/delay.js
+10	0	tailwind.config.js
+
+[33mcommit 9d12a8ae889d663585603625ef1a16f3a80c3b6c[m
+Author: Hottab13 <alekseev.a@hotmail.com>
+Date:   Wed Jan 18 13:30:34 2023 +0300
+
+    Initialize project using Create React App
+
+23	0	.gitignore
+70	0	README.md
+12218	0	package-lock.json
+38	0	package.json
+-	-	public/favicon.ico
+43	0	public/index.html
+-	-	public/logo192.png
+-	-	public/logo512.png
+25	0	public/manifest.json
+3	0	public/robots.txt
+38	0	src/App.css
+25	0	src/App.js
+8	0	src/App.test.js
+13	0	src/index.css
+17	0	src/index.js
+1	0	src/logo.svg
+13	0	src/reportWebVitals.js
+5	0	src/setupTests.js

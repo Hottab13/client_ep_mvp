@@ -3,101 +3,76 @@ import { NavLink, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { logoutUser } from "../../redux/slices/authSlice";
+import {
+  IconDividerMenu,
+  IconHeaderClose,
+  IconMobileMenu,
+} from "../../assets/icon/Icon";
+
+const MenuItem = ({ children, link }) => (
+  <li>
+    <NavLink
+      className={({ isActive }) =>
+        isActive
+          ? "text-sm text-indigo-500 font-bold"
+          : "text-sm text-gray-400 hover:text-gray-500"
+      }
+      to={link}
+    >
+      {children}
+    </NavLink>
+  </li>
+);
+const MobileMenuItem = ({ children, link }) => (
+  <li className="mb-1">
+    <NavLink
+      className={({ isActive }) =>
+        isActive
+          ? "block p-4 text-sm font-semibold bg-blue-50 text-blue-600 rounded"
+          : "block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+      }
+      to={link}
+    >
+      {children}
+    </NavLink>
+  </li>
+);
+const Logo = () => (
+  <Link
+    className=" text-3xl leading-none uppercase font-bold text-indigo-500"
+    to="/"
+  >
+    EVENT PARTY
+  </Link>
+);
 
 const Header = () => {
   const { isAuth } = useSelector((state) => state.authUser || {});
-  const user = useSelector((state) => state.userProfileData || {});
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
-
   return (
     <header className="bg-blue-500">
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-        <Link
-          className=" text-3xl leading-none uppercase font-bold text-indigo-500"
-          to="/"
-        >
-          EVENT PARTY
-        </Link>
-
+        <Logo />
         <div className="lg:hidden">
           <button
             onClick={() => setVisible(!visible)}
-            className="navbar-burger flex items-center text-blue-600 p-3"
+            className="navbar-burger flex items-center text-indigo-600 p-3"
           >
-            <svg
-              className="block h-4 w-4 fill-current"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Mobile menu</title>
-              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-            </svg>
+            <IconMobileMenu />
           </button>
         </div>
-
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6">
-          <li>
-            <NavLink
-              className="text-sm text-gray-400 hover:text-gray-500"
-              to="profile"
-            >
-              Профиль
-            </NavLink>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-
-          <li>
-            <NavLink className="text-sm text-indigo-500 font-bold" to="events">
-              События
-            </NavLink>
-          </li>
-          <li className="text-gray-300">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              className="w-4 h-4 current-fill"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-              />
-            </svg>
-          </li>
-
-          <li>
-            <NavLink
-              className="text-sm text-gray-400 hover:text-gray-500"
-              to="create-event"
-            >
-              Создать событие
-            </NavLink>
-          </li>
+          <MenuItem link={"profile"}>Профиль</MenuItem>
+          <IconDividerMenu />
+          <MenuItem link={"events"}>События</MenuItem>
+          <IconDividerMenu />
+          <MenuItem link={"create-event"}>Создать событие</MenuItem>
         </ul>
         {isAuth ? (
           <button
             onClick={() => dispatch(logoutUser())}
             className=" hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
-            to="login"
           >
             Выйти
           </button>
@@ -124,73 +99,46 @@ const Header = () => {
           <div className=" fixed inset-0 bg-gray-800 opacity-25"></div>
           <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
             <div className="flex items-center justify-between mb-8">
-              <Link
-                className=" text-3xl leading-none uppercase font-bold text-indigo-500"
-                to="/"
-              >
-                EVENT PARTY
-              </Link>
-
+              <Logo />
               <button onClick={() => setVisible(!visible)}>
-                <svg
-                  className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  ></path>
-                </svg>
+                <IconHeaderClose />
               </button>
             </div>
-
             <div>
               <ul>
-                <li className="mb-1">
-                  <Link
-                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    to="profile"
-                  >
-                    Профиль
-                  </Link>
-                </li>
-                <li className="mb-1">
-                  <NavLink
-                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    to="events"
-                  >
-                    События
-                  </NavLink>
-                </li>
-                <li className="mb-1">
-                  <Link
-                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    to="create-event"
-                  >
-                    Создать событие
-                  </Link>
-                </li>
+                <MobileMenuItem link={"profile"}>Профиль</MobileMenuItem>
+                <MobileMenuItem link={"events"}>События</MobileMenuItem>
+                <MobileMenuItem link={"create-event"}>
+                  Создать событие
+                </MobileMenuItem>
               </ul>
             </div>
+
             <div className="mt-auto">
               <div className="pt-6">
-                <a
-                  className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl"
-                  href="#"
-                >
-                  Войти
-                </a>
-                <a
-                  className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-indigo-600 hover:bg-indigo-700  rounded-xl"
-                  href="#"
-                >
-                  Зарегистрироваться
-                </a>
+                {isAuth ? (
+                  <button
+                    className="block mx-auto px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl"
+                    onClick={() => dispatch(logoutUser())}
+                  >
+                    Выйти
+                  </button>
+                ) : (
+                  <>
+                    <Link
+                      className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold bg-gray-50 hover:bg-gray-100 rounded-xl"
+                      to="login"
+                    >
+                      Войти
+                    </Link>
+                    <Link
+                      className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-indigo-600 hover:bg-indigo-700  rounded-xl"
+                      to="registration"
+                    >
+                      Зарегистрироваться
+                    </Link>
+                  </>
+                )}
               </div>
               <p className="my-4 text-xs text-center text-gray-400">
                 <Link to="https://t.me/smartech_ceo">

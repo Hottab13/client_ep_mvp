@@ -10,7 +10,7 @@ const UserProfilepage = () => {
   );
   if (status === "loading") return <Loader />;
   const isOwner = true;
-  return (
+  return ( 
     <ProfileContainer
       userData={userData}
       imgUser={imgUser}

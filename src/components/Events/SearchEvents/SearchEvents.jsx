@@ -1,25 +1,28 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
-const SearchEvents = ({ hendlerSubmit, eventQuery, eventSelect }) => {
-  const [search, setSearch] = useState(eventQuery);
-  const [selectType, setSelectType] = useState(eventSelect);
+const SearchEvents = ({ handleSearch, searchParams }) => {
+  const { register, handleSubmit } = useForm({
+    mode: "onBlur",
+  });
   return (
     <div className="container mx-auto px-3 ">
-      <form
-        action="/events"
-        method="post"
-        autoComplete="off"
-        onSubmit={hendlerSubmit}
-      >
+      <form onSubmit={handleSubmit(handleSearch)} autoComplete="off">
         <div className="py-3">
           <div className="my-3 flex sm:flex-row flex-col">
             <div className="flex flex-row mb-1 sm:mb-0">
               <div className="relative">
-                <select className="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                  <option>5</option>
-                  <option>10</option>
-                  <option>20</option>
+                <select
+                  {...register("limit", {
+                    //onChange: onChangeSearch,
+                  })}
+                 // value={searchParams.get("limit") || ""}
+                  className="appearance-none h-full rounded-l border block  w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                >
+                  <option value="5">5</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="60">60</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
@@ -33,9 +36,10 @@ const SearchEvents = ({ hendlerSubmit, eventQuery, eventSelect }) => {
               </div>
               <div className="relative">
                 <select
-                  name="type"
-                  value={selectType}
-                  onChange={(e) => setSelectType(e.target.value)}
+                  {...register("type", {
+                   // onChange: onChangeSearch,
+                  })}
+                 // value={searchParams.get("type") || ""}
                   className="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500"
                 >
                   <option value="">Все</option>
@@ -66,8 +70,8 @@ const SearchEvents = ({ hendlerSubmit, eventQuery, eventSelect }) => {
               <input
                 type="search"
                 name="search"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                // value={search}
+                //onChange={(e) => setSearch(e.target.value)}
                 placeholder="Поиск"
                 className="appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-400 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none"
               />

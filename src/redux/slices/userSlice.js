@@ -84,7 +84,6 @@ const userProfileData = createSlice({
   },
   reducers: {
     setUserData(state, action) {
-      debugger
       state.userData = {
         _id: action.payload?.user._id,
         email: action.payload?.user.email,

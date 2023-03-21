@@ -11,12 +11,12 @@ const UserInfoBlock = ({
   startDate,
   endDate,
 }) => (
-    <div className="w-full">
+    
       <div className="w-full flex p-1">
         {uniqueImgUsers.map(
           ({ user, img_200_200, _id }) =>
             user === ownerUser && (
-              <div key={_id} className="p-2 ">
+              <div key={_id} className="w-1/3 mt-2 md:mt-0  md:p-2 ">
                 <img
                   className="w-10 h-10 rounded-full overflow-hidden"
                   src={`data:image/jpg;base64,${_arrayBufferToBase64(
@@ -27,7 +27,7 @@ const UserInfoBlock = ({
               </div>
             )
         )}
-        <div className="pl-2 pt-2 ">
+        <div className="pl-2 pt-1 ">
           {uniqueUsers.map(
             ({ _id, data }) =>
               _id === ownerUser && (
@@ -51,7 +51,6 @@ const UserInfoBlock = ({
           </p>
         </div>
       </div>
-    </div>
   );
 
 export { UserInfoBlock };

@@ -50,7 +50,7 @@ const ProfileCard = ({ userData, imgUser, isOwner }) => {
         {imgUser ? (
           <img
             onClick={onButtonClick}
-            className="h-auto w-full mx-auto"
+            className="object-cover"
             src={`data:image/jpg;base64,${_arrayBufferToBase64(
               imgUser.img_1000_1000?.data?.data
             )}`}
@@ -59,7 +59,7 @@ const ProfileCard = ({ userData, imgUser, isOwner }) => {
         ) : (
           <img
             onClick={onButtonClick}
-            className="h-auto w-full mx-auto"
+            className="object-cover"
             src={Ava}
             alt={userData.data.userName}
           />

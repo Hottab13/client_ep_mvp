@@ -5,10 +5,10 @@ import { getEvents } from "../redux/slices/eventsSlice";
 
 const useEvents = () => {
   const dispatch = useDispatch();
-  const { events } = useSelector((state) => state.events.eventsData || {});
+  const eventsData = useSelector((state) => state.events.eventsData || {});
   useEffect(() => {
     dispatch(getEvents());
   }, [dispatch]);
-  return events;
+  return eventsData;
 };
 export { useEvents };

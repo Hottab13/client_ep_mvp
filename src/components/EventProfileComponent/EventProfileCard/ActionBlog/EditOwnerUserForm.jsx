@@ -43,8 +43,9 @@ const EditOwnerUserForm = ({ setIsOpenEditEv, isOpenEditEv, eventProfile }) => {
     dispatch(editEventData(dtos));
   };
   return (
-    <div className="bg-slate-800 bg-opacity-50 flex justify-center items-center absolute top-0 right-0 bottom-0 left-0">
-      <div className="bg-white px-16 py-14 rounded-md text-center">
+    <div className=" flex justify-center items-center absolute top-0 right-0 bottom-0 left-0 ">
+      <div className=" fixed inset-0 bg-gray-800 opacity-25"></div>
+      <div className="bg-white px-16 py-14 rounded-md text-center z-50">
         <form onSubmit={handleSubmit(handleEditEvent)} autoComplete="off">
           <div className="-mx-3 flex flex-wrap">
             <div className="w-full px-3 mb-5">
@@ -186,11 +187,11 @@ const EditOwnerUserForm = ({ setIsOpenEditEv, isOpenEditEv, eventProfile }) => {
                     {...register("startDate", {
                       required: "Обязательное поле!",
                       valueAsDate: "Должна быть дата!",
-                      validate: (val) => {
+                      /*validate: (val) => {
                         if (new Date().valueOf() >= val.valueOf()) {
                           return "Дата начала не может быть раньше сегодняшнего дня!";
                         }
-                      },
+                      },*/
                     })}
                     className="create-event-input"
                     type="date"
@@ -230,11 +231,11 @@ const EditOwnerUserForm = ({ setIsOpenEditEv, isOpenEditEv, eventProfile }) => {
                     {...register("endDate", {
                       required: "Обязательное поле!",
                       valueAsDate: "Должна быть дата!",
-                      validate: (val) => {
+                      /*validate: (val) => {
                         if (watch("startDate").valueOf() >= val.valueOf()) {
                           return "Дата окончания не может быть раньше даты начала!";
                         }
-                      },
+                      },*/
                     })}
                     className="create-event-input"
                     type="date"
@@ -271,7 +272,6 @@ const EditOwnerUserForm = ({ setIsOpenEditEv, isOpenEditEv, eventProfile }) => {
             <button
               type="submit"
               className="bg-indigo-500 hover:bg-indigo-600 px-5 py-2 ml-2 rounded-md text-md text-white font-semibold"
-              //disabled={!isValid}
             >
               Изменить
             </button>

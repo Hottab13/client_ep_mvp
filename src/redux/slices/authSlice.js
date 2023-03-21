@@ -16,11 +16,8 @@ export const loginUser = createAsyncThunk(
       if (!response.status === 200) {
         throw new Error("Не удалось авторизоватсья!");
       }
-
       if (response.data.user.isActivated) {
-        debugger;
         if (params.remember_me) {
-          debugger;
           localStorage.setItem("token", response.data.accessToken);
         }
         dispatch(setUserData(response.data));
@@ -59,7 +56,8 @@ export const logoutUser = createAsyncThunk(
         throw new Error("Не удалось выполнить выход!");
       }
       localStorage.removeItem("token");
-      dispatch(setUserData());
+      dispatch(isAuthFalse());
+      dispatch(setUserData(null));
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -77,7 +75,7 @@ export const checkUser = createAsyncThunk(
         localStorage.setItem("token", response.data.accessToken);
         dispatch(setUserData(response.data));
       } else if (response.status === 401) {
-        localStorage.removeItem("token");
+        localStorage.removeItem("token"); 
         dispatch(setUserData());
       } else {
         throw new Error("Не удалось выполнить аунтификацию!");
@@ -110,9 +108,11 @@ const authUser = createSlice({
   },
   reducers: {
     isRegistration(state, action) {
-      debugger;
       state.message = action.payload;
       state.isRegistration = !state.isRegistration;
+    },
+    isAuthFalse(state){
+      state.isAuth = false;
     },
   },
   extraReducers: {
@@ -141,7 +141,6 @@ const authUser = createSlice({
     },
     [logoutUser.fulfilled]: (state) => {
       state.status = "resolved";
-      state.isAuth = false;
     },
     [logoutUser.rejected]: setError,
 
@@ -158,4 +157,4 @@ const authUser = createSlice({
 });
 
 export default authUser.reducer;
-const { isRegistration } = authUser.actions;
+const { isRegistration, isAuthFalse } = authUser.actions;

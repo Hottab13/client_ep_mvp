@@ -7,6 +7,7 @@ export const getEvents = createAsyncThunk(
   async function (_, { rejectWithValue }) {
     try {
       const response = await instance.get("events");
+      debugger
       if (!response.status === 200) {
         throw new Error("Не удалось получить события!");
       }

@@ -6,7 +6,7 @@ import { BlockHeader } from "../BlockHeader";
 
 const BlockParameter = ({ children, name }) => (
   <div className="grid grid-cols-2">
-    <div className="md:px-1 py-2 px-4 font-semibold">{name+":"}</div>
+    <div className="py-2 px-4 font-semibold">{name+":"}</div>
     <div className="overflow-hidden mx-2 md:px-1 py-2">{children || " "}</div>
   </div>
 );
