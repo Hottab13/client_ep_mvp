@@ -21,10 +21,7 @@ export const postSearchEvents = createAsyncThunk(
   "eventsSlice/postSearchEvents",
   async function (params, { rejectWithValue }) {
     try {
-      const response = await instance.post("filtr-events/", {
-        type: params.type,
-        search: params.search,
-      });
+      const response = await instance.post("filtr-events/", params);
       if (!response.status === 200) {
         throw new Error("Не удалось получить отфильтрованные события!");
       }
@@ -164,7 +161,6 @@ export const editEventData = createAsyncThunk(
     }
   }
 );
-
 const setError = (state, action) => {
   state.status = "rejected";
   state.error = action.payload;
@@ -228,7 +224,7 @@ const events = createSlice({
     [postSearchEvents.pending]: setPending,
     [postSearchEvents.fulfilled]: (state, action) => {
       state.status = "resolved";
-      state.eventsData.events = action.payload;
+      state.eventsData = action.payload;;
     },
     [postSearchEvents.rejected]: setError,
 

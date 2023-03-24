@@ -1,5 +1,6 @@
-import { Fragment } from "react";
 import { useDispatch } from "react-redux";
+
+import { useCurrentTime } from "../../../../hook/useCurrentTime";
 
 import {
   addUserIdEvent,
@@ -10,12 +11,12 @@ import { EditOwnerUser, EndEvent } from "./EditOwnerUser";
 
 const ActionBlog = ({ eventProfile, user_id }) => {
   const inEventTime = Math.floor(
-    new Date(eventProfile.dateOfTheEvent[0]).valueOf()
+    new Date(eventProfile.startDate).valueOf()
   );
-  const currentTime = Math.floor(new Date().valueOf() + 10800000);
-  const dispatch = useDispatch();
+  const currentTime =  useCurrentTime();
+  const dispatch = useDispatch(); 
   return (
-    <Fragment>
+    <>
       {inEventTime <= currentTime ? (
         eventProfile.ownerUser === user_id && (
           <EndEvent/>
@@ -71,7 +72,7 @@ const ActionBlog = ({ eventProfile, user_id }) => {
           </button>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 export { ActionBlog };
