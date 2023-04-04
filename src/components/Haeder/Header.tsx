@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
+import Logo_256 from "../../assets/images/android-chrome-256x256.png";
 import { useAppDispatch, useAppSelector } from "../../hook";
 import { logoutUser } from "../../redux/slices/authSlice";
 import {
@@ -45,10 +46,15 @@ const MobileMenuItem = ({ children, link }: MenuItemProps) => (
 );
 const Logo = () => (
   <Link
-    className=" text-3xl leading-none uppercase font-bold text-indigo-500"
+    className="flex items-center text-xl leading-none uppercase font-bold text-indigo-500"
     to="/"
   >
-    EVENT PARTY ОБТ v_0.1
+    <img
+      className="h-16 border-4 border-white rounded-full pr-5"
+      src={Logo_256}
+      alt="EventParty"
+    />
+    ОБТ v_0.1
   </Link>
 );
 
