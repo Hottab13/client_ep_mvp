@@ -258,7 +258,7 @@ const authUser = createSlice({
       })
       .addMatcher(isPending, (state) => {
         state.message = null;
-        state.status = "loading";
+        //state.status = "loading";
         state.errorProcessing = {
           message: null,
           errors: null,
