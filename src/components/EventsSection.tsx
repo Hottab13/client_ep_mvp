@@ -54,7 +54,6 @@ const EventsSection: React.FC<EventsSectionProps> = ({
                     endDate={endDate}
                   />
                 )}
-
                 <Link to={`/event/${_id}`}>
                   {ImgEvents&&ImgEvents.find((e) => _id === e.event) ? (
                     ImgEvents.map(

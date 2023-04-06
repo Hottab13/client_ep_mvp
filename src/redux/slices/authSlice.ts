@@ -108,7 +108,7 @@ export const loginUser = createAsyncThunk<
       password: params.password,
     });
     if (response.data.userData.isActivated) {
-      if (params.remember_me==="remember_me") {
+      if (params.remember_me === "remember_me") {
         localStorage.setItem("token", response.data.accessToken);
       }
       return response.data;
@@ -170,6 +170,14 @@ const authUser = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(uploadPhotoProfileAva.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
+      })
       .addCase(uploadPhotoProfileAva.fulfilled, (state, action) => {
         state.status = "resolved";
         state.isAuth = true;
@@ -178,6 +186,15 @@ const authUser = createSlice({
       .addCase(uploadPhotoProfileAva.rejected, (state, action) => {
         state.status = "rejected";
         state.errorProcessing = action.payload;
+      })
+
+      .addCase(uploadDataUserProfile.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
       })
       .addCase(uploadDataUserProfile.fulfilled, (state, action) => {
         state.status = "resolved";
@@ -188,14 +205,31 @@ const authUser = createSlice({
         state.status = "rejected";
         state.errorProcessing = action.payload;
       })
+
+      .addCase(getUserId.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
+      })
       .addCase(getUserId.fulfilled, (state, action) => {
         state.status = "resolved";
-        state.isAuth = true;
         state.userDataId = action.payload;
       })
       .addCase(getUserId.rejected, (state, action) => {
         state.status = "rejected";
         state.errorProcessing = action.payload;
+      })
+
+      .addCase(loginUser.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.status = "resolved";
@@ -210,6 +244,15 @@ const authUser = createSlice({
         state.isAuth = false;
         state.errorProcessing = action.payload;
       })
+
+      .addCase(registrationUser.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
+      })
       .addCase(registrationUser.fulfilled, (state, action) => {
         state.status = "resolved";
         state.message = action.payload;
@@ -219,6 +262,15 @@ const authUser = createSlice({
         state.status = "rejected";
         state.isAuth = false;
         state.errorProcessing = action.payload;
+      })
+
+      .addCase(logoutUser.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
+          errors: null,
+        };
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.status = "resolved";
@@ -233,6 +285,15 @@ const authUser = createSlice({
         state.isAuth = false;
         state.errorProcessing = {
           message: action.payload,
+          errors: null,
+        };
+      })
+
+      .addCase(checkUser.pending, (state) => {
+        state.message = null;
+        state.status = "loading";
+        state.errorProcessing = {
+          message: null,
           errors: null,
         };
       })
@@ -255,15 +316,16 @@ const authUser = createSlice({
           message: action.payload,
           errors: null,
         };
-      })
-      .addMatcher(isPending, (state) => {
+      });
+    /*.addMatcher(isPending, (state) => {
+        console.log("Пендинг юзеров")
         state.message = null;
-        //state.status = "loading";
+        state.status = "loading";
         state.errorProcessing = {
           message: null,
           errors: null,
         };
-      });
+      });*/
   },
 });
 export default authUser.reducer;

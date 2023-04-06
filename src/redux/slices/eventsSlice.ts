@@ -79,7 +79,7 @@ export const addUserIdEvent = createAsyncThunk<
     } catch {
       return rejectWithValue("Не удалось добавить пользователя!");
     }
-  }
+  },
 );
 export const delUserIdEvent = createAsyncThunk<
   string | undefined,
@@ -100,7 +100,7 @@ export const delUserIdEvent = createAsyncThunk<
     } catch (error) {
       return rejectWithValue("Не удалось удалить пользователя!");
     }
-  }
+  },
 );
 export const createEvent = createAsyncThunk<
   EventProfile,

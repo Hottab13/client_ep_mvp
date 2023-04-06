@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 import { useUserData } from "../hook/useUserData";
 import { Loader } from "../components/Loader";
