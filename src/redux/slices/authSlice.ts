@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk, isPending } from "@reduxjs/toolkit";
-import Axios from "axios";
+import axios from "axios";
+
 
 import instance, { API_URL } from "../../api/index";
 import {
@@ -154,8 +155,9 @@ export const checkUser = createAsyncThunk<
   { rejectValue: string }
 >("authUserSlice/checkUser", async (_, { rejectWithValue }) => {
   try {
-    const response = await Axios.get(`${API_URL}/refresh`, {
-      withCredentials: true,
+    axios.defaults.withCredentials = true;
+    const response = await axios.get(`${API_URL}/refresh`, {
+      withCredentials: true, 
     });
     localStorage.setItem("token", response.data.accessToken);
     return response.data;

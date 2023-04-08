@@ -1,10 +1,14 @@
-import Axios from "axios";
+import axios from "axios";
 
 //export const API_URL = "http://localhost:4741/api";
-export const API_URL = "http://80.90.186.196:4741/api";
-
-const instance = Axios.create({
+export const API_URL = "http://80.90.186.196:5000/api";
+axios.defaults.withCredentials = true;
+const instance = axios.create({
   withCredentials: true,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
   baseURL: API_URL,
 });
 
@@ -17,6 +21,7 @@ instance.interceptors.response.use(
     return config;
   },
   async (error) => {
+    debugger
     const originalResponse = error.config;
     if (
       error.response.status === 401 &&
@@ -25,7 +30,7 @@ instance.interceptors.response.use(
     ) {
       originalResponse._isRetru = true;
       try {
-        const response = await Axios.get(`${API_URL}/refresh`, {
+        const response = await axios.get(`${API_URL}/refresh`, {
           withCredentials: true,
         });
         localStorage.setItem("token", response.data.accessToken);
