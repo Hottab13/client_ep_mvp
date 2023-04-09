@@ -19,7 +19,7 @@ const EventProfilepage:React.FC = () => {
   return (
     <>
       {eventProfileData && (
-        <div className="h-full bg-gray-100 p-5">
+        <div className="h-full container mx-auto my-5 p-2 bg-gray-100">
           <EventProfileCard
             eventProfile={eventProfileData.eventProfile}
             eventImg={eventProfileData.eventImg}

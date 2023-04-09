@@ -1,14 +1,11 @@
 import axios from "axios";
 
-//export const API_URL = "http://localhost:4741/api";
-export const API_URL = "https://80.90.186.196:5000/api";
+//export const API_URL = "http://localhost:4741/api"; 
+export const API_URL = "https://event-party.ru:5000/api";
+
 axios.defaults.withCredentials = true;
 const instance = axios.create({
   withCredentials: true,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
   baseURL: API_URL,
 });
 
