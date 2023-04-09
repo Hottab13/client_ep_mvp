@@ -1,9 +1,7 @@
 import axios from "axios";
-
 //export const API_URL = "http://localhost:4741/api"; 
 export const API_URL = "https://event-party.ru:5000/api";
 
-axios.defaults.withCredentials = true;
 const instance = axios.create({
   withCredentials: true,
   baseURL: API_URL,
@@ -18,7 +16,6 @@ instance.interceptors.response.use(
     return config;
   },
   async (error) => {
-    debugger
     const originalResponse = error.config;
     if (
       error.response.status === 401 &&

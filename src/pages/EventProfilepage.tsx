@@ -34,7 +34,7 @@ const EventProfilepage:React.FC = () => {
           <EventPartyBlog
             eventProfileData={eventProfileData}
             user_id={authUser.userData?._id}
-          />
+      />
         </div>
       )}
     </>

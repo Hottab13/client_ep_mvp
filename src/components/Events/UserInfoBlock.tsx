@@ -66,7 +66,7 @@ const UserInfoBlock: React.FC<UserInfoBlockProps> = ({
           user === ownerUser && (
             <UserImgBlog
             key={_id}
-              className={"w-1/3 mt-2 md:mt-0  md:p-2 "}
+              className={"collapse sm:visible w-1/3 mt-2 md:mt-0  md:p-2 "}
               img_200_200={img_200_200}
               user={user}
             />
@@ -86,7 +86,7 @@ const UserInfoBlock: React.FC<UserInfoBlockProps> = ({
               />
             )
         )}
-      <p className="text-xs">
+      <p className="collapse sm:visible  text-xs">
         {"Начало" +
           " " +
           moment.utc(startDate).format("DD/MM/YYYY") +

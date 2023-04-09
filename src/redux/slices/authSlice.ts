@@ -155,7 +155,6 @@ export const checkUser = createAsyncThunk<
   { rejectValue: string }
 >("authUserSlice/checkUser", async (_, { rejectWithValue }) => {
   try {
-    axios.defaults.withCredentials = true;
     const response = await axios.get(`${API_URL}/refresh`, {
       withCredentials: true, 
     });

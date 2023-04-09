@@ -17,8 +17,8 @@ const ElementTimerBlog = ({
   <div
     className={
       color
-        ? "w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg"
-        : "w-24 mx-1 p-2 bg-white text-green-500 rounded-lg"
+        ? "sm:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg"
+        : "sm:w-24 mx-1 p-2 bg-white text-green-500 rounded-lg"
     }
   >
     <div className="font-mono leading-none">{children}</div>
@@ -86,7 +86,7 @@ const EventCountdownTimerBlog: React.FC<EventCountdownTimerBlogProps> = ({
               : "flex-1 bg-yellow-500  rounded-lg shadow-xl p-8"
           }
         >
-          <div className="min-w-screen   flex items-center justify-center px-5 py-5">
+          <div className="min-w-screen flex items-center justify-center sm:px-5 sm:py-5">
             <div
               className={
                 inEventTime <= currentTime
@@ -103,7 +103,7 @@ const EventCountdownTimerBlog: React.FC<EventCountdownTimerBlogProps> = ({
                   Событие начнется через
                 </h1>
               )}
-              <div className="text-6xl text-center flex w-full items-center justify-center">
+              <div className="text-3xl sm:text-5xl text-center flex w-full items-center justify-center">
                 {timeLeft}
               </div>
             </div>
